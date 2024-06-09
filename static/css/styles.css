@@ -52,19 +52,30 @@ form {
     margin-bottom: 15px;
 }
 
+.margin-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.margin-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 label {
-    display: block;
-    margin-bottom: 5px;
     font-weight: bold;
+    margin-bottom: 5px;
 }
 
 input[type="url"],
 input[type="number"],
 input[type="text"],
-input[type="file"] {
-    width: 100%;
+input[type="file"],
+select {
     padding: 10px;
-    margin: 5px 0 10px 0;
+    margin-bottom: 10px;
     border: 1px solid #ced4da;
     border-radius: 4px;
     box-sizing: border-box;
@@ -83,4 +94,9 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+.error {
+    color: red;
+    margin-bottom: 20px;
 }

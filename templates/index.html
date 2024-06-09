@@ -1,35 +1,51 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Margin To PDF</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
+
 <body>
     <header>
         <h1>Add Margin To Papers</h1>
     </header>
     <main>
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
         <section>
             <h2>Upload PDF file</h2>
             <form method="post" action="/process" enctype="multipart/form-data">
                 <input type="file" name="file" required>
                 <div class="form-group">
-                    <label for="margin_top">Top Margin (in points):</label>
-                    <input type="number" id="margin_top" name="margin_top" required>
-                </div>
-                <div class="form-group">
-                    <label for="margin_bottom">Bottom Margin (in points):</label>
-                    <input type="number" id="margin_bottom" name="margin_bottom" required>
-                </div>
-                <div class="form-group">
-                    <label for="margin_left">Left Margin (in points):</label>
-                    <input type="number" id="margin_left" name="margin_left" required>
-                </div>
-                <div class="form-group">
-                    <label for="margin_right">Right Margin (in points):</label>
-                    <input type="number" id="margin_right" name="margin_right" required>
+                    <label>Margins:</label>
+                    <div class="margin-row">
+                        <div class="margin-column">
+                            <label for="margin_top">Top:</label>
+                            <input type="number" id="margin_top" name="margin_top" value="0" required>
+                        </div>
+                        <div class="margin-column">
+                            <label for="margin_bottom">Bottom:</label>
+                            <input type="number" id="margin_bottom" name="margin_bottom" value="0" required>
+                        </div>
+                        <div class="margin-column">
+                            <label for="margin_left">Left:</label>
+                            <input type="number" id="margin_left" name="margin_left" value="0" required>
+                        </div>
+                        <div class="margin-column">
+                            <label for="margin_right">Right:</label>
+                            <input type="number" id="margin_right" name="margin_right" value="0" required>
+                        </div>
+                    </div>
+                    <label for="unit">Unit:</label>
+                    <select id="unit" name="unit" required>
+                        <option value="inch" selected>inch</option>
+                        <option value="cm">cm</option>
+                        <option value="pt">pt</option>
+                    </select>
                 </div>
                 <button type="submit">Upload and Process PDF</button>
             </form>
@@ -39,24 +55,36 @@
             <form method="post" action="/process_url">
                 <input type="text" name="url" placeholder="Enter PDF URL" required>
                 <div class="form-group">
-                    <label for="margin_top">Top Margin (in points):</label>
-                    <input type="number" id="margin_top" name="margin_top" required>
-                </div>
-                <div class="form-group">
-                    <label for="margin_bottom">Bottom Margin (in points):</label>
-                    <input type="number" id="margin_bottom" name="margin_bottom" required>
-                </div>
-                <div class="form-group">
-                    <label for="margin_left">Left Margin (in points):</label>
-                    <input type="number" id="margin_left" name="margin_left" required>
-                </div>
-                <div class="form-group">
-                    <label for="margin_right">Right Margin (in points):</label>
-                    <input type="number" id="margin_right" name="margin_right" required>
+                    <label>Margins:</label>
+                    <div class="margin-row">
+                        <div class="margin-column">
+                            <label for="margin_top">Top:</label>
+                            <input type="number" id="margin_top" name="margin_top" value="0" required>
+                        </div>
+                        <div class="margin-column">
+                            <label for="margin_bottom">Bottom:</label>
+                            <input type="number" id="margin_bottom" name="margin_bottom" value="0" required>
+                        </div>
+                        <div class="margin-column">
+                            <label for="margin_left">Left:</label>
+                            <input type="number" id="margin_left" name="margin_left" value="0" required>
+                        </div>
+                        <div class="margin-column">
+                            <label for="margin_right">Right:</label>
+                            <input type="number" id="margin_right" name="margin_right" value="0" required>
+                        </div>
+                    </div>
+                    <label for="unit">Unit:</label>
+                    <select id="unit" name="unit" required>
+                        <option value="inch" selected>inch</option>
+                        <option value="cm">cm</option>
+                        <option value="pt">pt</option>
+                    </select>
                 </div>
                 <button type="submit">Download and Process PDF</button>
             </form>
         </section>
     </main>
 </body>
+
 </html>
